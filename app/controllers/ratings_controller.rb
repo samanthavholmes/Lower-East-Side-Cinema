@@ -5,16 +5,17 @@ class RatingsController < ApplicationController
   def new
     if logged_in?
       @rating = Rating.new
+      @film = Film.find_by(id: params[:film_id])
     else
       render "/_unauthorized"
-    en
+    end
   end
 
   def create
     if logged_in?
-      @rating = Rating.new(rating_params)
+      @rating = Rating.new(rating_params.merge(user_id: current_user.id))
       if @rating.save
-        redirect_to @rating
+        redirect_to film_path(@rating.film)
       else
         render :new
       end
