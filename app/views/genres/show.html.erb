@@ -1,4 +1,3 @@
-
 <section id="genre-show">
 <h2><%= @genre.title %></h2>
 
@@ -10,7 +9,19 @@
 	<% @genre.films.reverse.each do |film| %>
 	<li><%= link_to film.title, film_path(film) %></li>
 	<% end %>
+
+<ul class="active" id="sort_by_stars">
+  <h3>Sorted by stars</h3>
+  <% @genre.sort_by_stars.each do |film| %>
+    <li><%= link_to film.title, film_path(film) %></li>
+  <% end %>
+
+</ul>
+<ul class="active" id="sort_by_recent">
+  <h3>Sorted by most recent</h3>
+  <% @genre.films.reverse.each do |film| %>
+    <li><%= link_to film.title, film_path(film) %></li>
+  <% end %>
+
 </ul>
 </section>
-
-

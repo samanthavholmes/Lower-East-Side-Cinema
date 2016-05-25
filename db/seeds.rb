@@ -74,40 +74,7 @@ end
     genre_id: 6)
 end
 
-# 10.times do
-#   Rating.create!(stars: rand(1..5),
-#     review: Faker::Lorem.paragraph,
-#     user_id: rand(1..20),
-#     film_id: rand(1..10))
-# end
 
-# 10.times do
-#   Rating.create!(stars: rand(1..5),
-#     review: Faker::Lorem.paragraph,
-#     user_id: rand(1..20),
-#     film_id: rand(10..20))
-# end
-
-# 10.times do
-#   Rating.create!(stars: rand(1..5),
-#     review: Faker::Lorem.paragraph,
-#     user_id: rand(1..20),
-#     film_id: rand(20..30))
-# end
-
-# 10.times do
-#   Rating.create!(stars: rand(1..5),
-#     review: Faker::Lorem.paragraph,
-#     user_id: rand(1..20),
-#     film_id: rand(30..40))
-# end
-
-# 10.times do
-#   Rating.create!(stars: rand(1..5),
-#     review: Faker::Lorem.paragraph,
-#     user_id: rand(1..20),
-#     film_id: rand(40..50))
-# end
 10.times do
   rating = Rating.create!(stars: rand(1..5),
     review: Faker::Lorem.paragraph,
@@ -116,11 +83,6 @@ end
   rating.comments.create!(user: User.all.sample, body: Faker::Lorem.paragraph)
 end
 
-# 20.times do
-#   Comment.create!(body: Faker::Lorem.paragraph,
-#     user_id: rand(1..20),
-#     rating_id: (1..60))
-# end
 
 
 
