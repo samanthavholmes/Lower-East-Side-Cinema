@@ -6,7 +6,7 @@
   <ul>
     <%@user.ratings.each do |rating|%> <!-- List of all the reviews -->
       <li>
-        <%=truncate(rating.review, length: 50, separator: ' '){link_to film_path "Read more", (rating.film)} %><br> <!-- Renders a blurb of the review, with a link to the full review -->
+        <%=truncate(rating.review, length: 90, separator: ' '){link_to "Read more", film_path(rating.film)} %><br> <!-- Renders a blurb of the review, with a link to the full review -->
         <%=rating.stars%>
       </li>
     <% end %>

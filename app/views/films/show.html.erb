@@ -23,9 +23,9 @@
 <ul>
 	<% @film.ratings.each do |rating| %>
 	<% if !rating.user.judge? %>
-
 	<li>
-		<%= render partial: "ratings/rating_partial_show", locals: {rating: rating}%>
+		<%= render partial: "ratings/rating_partial_show", locals: {rating: rating} %>
+	<% end %>
 	</li>
 	<% end %>
 	<%end%>
