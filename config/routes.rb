@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  root 'genres#index'
+  resources :genres, only: [:index, :show]
+  resources :users, except: [:index]
+  resources :films, only: [:show]
+  resources :ratings, except: [:index, :show]
+  resources :comments, except: [:index, :show]
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
