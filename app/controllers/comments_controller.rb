@@ -10,28 +10,35 @@ class CommentsController < ApplicationController
   end
 
   def create
+    if logged_in? && @comment.save
     @comment = @comment.new(comment_params)
-    if @comment.save
       redirect_to film_path
       # RENDER review partial??
-    else
+    elsif logged_in? && !@comment.save
       render 'new'
+    else
+      render "_unauthorized"
     end
   end
 
   def edit
+    if logged_in?
   end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to film_path
+    if logged_in? && @comment.update(comment_params)
+      redirect_to film_path(@film)
       # RENDER review partial??
-    else
+    elsif logged_in? && !@comment.update
       render 'edit'
+    else
+      render "_unauthorized"
     end
   end
 
   def destroy
+    if logged_in?
+    end
   end
 
   private
