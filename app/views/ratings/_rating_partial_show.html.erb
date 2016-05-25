@@ -1,6 +1,7 @@
 <p><%=rating.stars%> Stars</p>
 <p><%=rating.review%></p><br>
 - <%= link_to rating.user.first_name + " " + rating.user.last_name, user_path(rating.user) %>
+ <p><%= link_to "Comment on this review", new_comment_path(params: {rating_id: rating.id}) %></p>
 
 
 <ul id = "rating_comments">

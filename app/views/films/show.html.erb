@@ -29,6 +29,7 @@
 	<% end %>
 	<%end%>
 </ul>
+<%= link_to "Comment on this review", @genres %>
 </div>
 
 <%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}) %>
