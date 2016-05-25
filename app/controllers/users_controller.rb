@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @judges = User.where(role: "judge")
+  end
+
   def new
     @user = User.new #Instantiate new blank user
   end

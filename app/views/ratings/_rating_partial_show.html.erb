@@ -2,5 +2,4 @@
 - <%=rating.user.first_name%>
 <%=rating.user.last_name%>
 
-<%= render partial: "comment_partial_show", locals {rating: rating} %>
-
+<%= render partial: "comments/comment_partial_show", locals: {rating: rating} %>

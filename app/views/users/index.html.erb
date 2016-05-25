@@ -1,0 +1,7 @@
+<h2>Meet the Judges</h2>
+<section id="judges-index">
+<% @judges.each do |judge| %>
+<img src="<%= judge.picture %>">
+<%= link_to judge.first_name + " " + judge.last_name, user_path(judge) %>
+<% end %>
+</section>

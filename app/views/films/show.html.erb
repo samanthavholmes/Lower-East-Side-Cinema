@@ -9,8 +9,8 @@
 <h3>Judge Reviews</h3>
 <ul>
 <% @film.ratings.each do |rating| %>
-	<li>
 	<% if rating.user.judge? %>
+	<li>
 
 		<%=rating.stars%>
 		<p><%=rating.review%></p><br>
@@ -21,18 +21,18 @@
 </ul>
 </div>
 
-<%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}) %>
-
 <div class="rating" id="public-ratings">
 <h3>Public Reviews</h3>
 <ul>
 	<% @film.ratings.each do |rating| %>
 	<li>
 	<% if !rating.user.judge? %>
-		<%= render partial: "rating_partial_show", locals: {rating: rating} %>
+		<%= render partial: "ratings/rating_partial_show", locals: {rating: rating} %>
 	<% end %>
 	</li>
 	<%end%>
 </ul>
 </div>
+
+<%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}) %>
 
