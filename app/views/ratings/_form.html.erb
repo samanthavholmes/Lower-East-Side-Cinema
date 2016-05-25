@@ -11,7 +11,10 @@
     </div>
   <% end %>
 
- <!-- hidden field for film id -->
+
+  <div class="field">
+    <%= f.hidden_field :film_id, value: @film.id %>
+  </div>
   <div class="field">
     <%= f.label :stars %><br>
     <%= f.number_field :stars %>
