@@ -1,0 +1,40 @@
+
+
+<div id="film-desc">
+	<h1><%= @film.title%></h1>
+	<img src="<%= @film.picture%>">
+	<h3><%= @film.director%></h3>
+	<p><%= @film.description%></p>
+</div>
+
+<div class="rating" id="judge-ratings">
+<h3>Judge Reviews</h3>
+<ul>
+<% @film.ratings.each do |rating| %>
+	<li>
+	<% if rating.user.judge? %>
+
+		<%=rating.stars%>
+		<p><%=rating.review%></p><br>
+		- <%=rating.user.first_name%> <%=rating.user.last_name%>
+	<% end %>
+	</li>
+	<%end%>
+</ul>
+</div>
+
+<div class="rating" id="public-ratings">
+<h3>Public Reviews</h3>
+<ul>
+	<% @film.ratings.each do |rating| %>
+	<li>
+	<% if !rating.user.judge? %>
+		<%=rating.stars%>
+		<p><%=rating.review%></p><br>
+		- <%=rating.user.first_name%> <%=rating.user.last_name%>
+	<% end %>
+	</li>
+	<%end%>
+</ul>
+</div>
+
