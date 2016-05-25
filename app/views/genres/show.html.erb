@@ -7,7 +7,7 @@
 
 <section id="film-index">
 <ul>
-	<% @genre.films.each do |film| %>
+	<% @genre.films.reverse.each do |film| %>
 	<li><%= link_to film.title, film_path %></li>
 	<% end %>
 </ul>

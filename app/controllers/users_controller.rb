@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def edit #Render edit page
     if !is_user? #Protects the route against users deleting profiles that aren't theirs
-      render "_unauthorized"
+      render "/_unauthorized"
     end
   end
 
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
         render 'edit' #Rerender edit page
       end
     else
-      render "_unauthorized"
+      render "/_unauthorized"
     end
   end
 
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
       @user.destroy #Delete the user from the database
       redirect_to root_path #Redirect to home page
     else
-      render "_unauthorized"
+      render "/_unauthorized"
     end
   end
 

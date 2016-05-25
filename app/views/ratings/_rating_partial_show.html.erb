@@ -1,10 +1,13 @@
 <p><%=rating.stars%> Stars</p>
 <p><%=rating.review%></p><br>
-- <%= link_to rating.user.first_name + " " + rating.user.last_name, user_path(rating.user) %>
+- <%= link_to rating.user.first_name + " " + rating.user.last_name, user_path(rating.user) %><br>
 
+<% if logged_in? && rating.user == current_user %>
+  <%= link_to "Edit rating", edit_rating_path(rating, params: {film_id: @film.id}) %>
+<% end %>
 
 <ul id = "rating_comments">
-<%  rating.comments.each do |comment| %>
+<%  rating.comments.reverse.each do |comment| %>
 <li>
 <%= render partial: "comments/comment_partial_show", locals: {comment: comment} %>
 <% end %>
