@@ -11,13 +11,9 @@
 <% @film.ratings.each do |rating| %>
 	<% if rating.user.judge? %>
 	<li>
-
-		<%=rating.stars%>
-		<p><%=rating.review%></p><br>
-		- <%=rating.user.first_name%> <%=rating.user.last_name%>
 	<%= render partial: "ratings/rating_partial_show", locals: {rating: rating} %>
-	<% end %>
 	</li>
+	<% end %>
 	<%end%>
 </ul>
 </div>
@@ -26,11 +22,12 @@
 <h3>Public Reviews</h3>
 <ul>
 	<% @film.ratings.each do |rating| %>
-	<li>
 	<% if !rating.user.judge? %>
-		<%= render partial: "ratings/rating_partial_show", locals: {rating: rating} %>
-	<% end %>
+
+	<li>
+		<%= render partial: "ratings/rating_partial_show", locals: {rating: rating}%>
 	</li>
+	<% end %>
 	<%end%>
 </ul>
 </div>
