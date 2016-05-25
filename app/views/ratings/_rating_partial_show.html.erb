@@ -2,3 +2,10 @@
 - <%=rating.user.first_name%>
 <%=rating.user.last_name%>
 
+<ul>
+<%  rating.comments.each do |comment| %>
+<li>
+<%= render partial: "comments/comment_partial_show", locals: {comment: comment} %>
+<% end %>
+</li>
+</ul>

@@ -9,11 +9,11 @@
 <h3>Judge Reviews</h3>
 <ul>
 <% @film.ratings.each do |rating| %>
-	<li>
 	<% if rating.user.judge? %>
+	<li>
 	<%= render partial: "ratings/rating_partial_show", locals: {rating: rating} %>
-	<% end %>
 	</li>
+	<% end %>
 	<%end%>
 </ul>
 </div>
@@ -24,11 +24,11 @@
 <h3>Public Reviews</h3>
 <ul>
 	<% @film.ratings.each do |rating| %>
-	<li>
 	<% if !rating.user.judge? %>
+	<li>
 		<%= render partial: "ratings/rating_partial_show", locals: {rating: rating}%>
-	<% end %>
 	</li>
+	<% end %>
 	<%end%>
 </ul>
 </div>
