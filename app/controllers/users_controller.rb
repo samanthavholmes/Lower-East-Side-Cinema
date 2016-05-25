@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params #Strong params white listed fields only
-    params.require(:create).permit(:first_name, :last_name, :bio, :picture, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :bio, :picture, :email, :password)
   end
 
   def set_user # Sets the user for further controller methods
