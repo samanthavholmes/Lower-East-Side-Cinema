@@ -5,6 +5,11 @@
 </section>
 
 <section id="film-index">
+<ul>
+	<% @genre.films.reverse.each do |film| %>
+	<li><%= link_to film.title, film_path(film) %></li>
+	<% end %>
+
 <ul class="active" id="sort_by_stars">
   <h3>Sorted by stars</h3>
   <% @genre.sort_by_stars.each do |film| %>
@@ -17,5 +22,6 @@
   <% @genre.films.reverse.each do |film| %>
     <li><%= link_to film.title, film_path(film) %></li>
   <% end %>
+
 </ul>
 </section>
