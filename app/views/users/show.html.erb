@@ -1,4 +1,14 @@
 <div id="user_show">
   <h1><%=@user.first_name%> <%=@user.last_name%></h1>
-
+  <img src="<%=@user.picture%>">
+  <p><%=@user.bio%></p>
+  <h3>Movies <%=@user.first_name%> <%=@user.last_name%> has reviewed</h3>
+  <ul>
+    <%@user.ratings.each do |rating|%> <!-- List of all the reviews -->
+      <li>
+        <%=truncate(rating.review, length: 50, separator: ' '){link_to film_path "Read more", (rating.film)} %><br> <!-- Renders a blurb of the review, with a link to the full review -->
+        <%=rating.stars%>
+      </li>
+    <% end %>
+  </ul>
 </div>
