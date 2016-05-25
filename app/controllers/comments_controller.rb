@@ -5,50 +5,61 @@ class CommentsController < ApplicationController
     if logged_in?
       @comment = Comment.new
     else
-      render "_unauthorized"
+      render "/_unauthorized"
     end
   end
 
   def create
-    if logged_in? && @comment.save
+    if logged_in?
     @comment = @comment.new(comment_params)
-      redirect_to film_path
+      if @comment.save
+        redirect_to @film
       # RENDER review partial??
-    elsif logged_in? && !@comment.save
-      render 'new'
+      else
+        render 'new'
+      end
     else
-      render "_unauthorized"
+      render "/_unauthorized"
     end
   end
 
   def edit
-    if logged_in?
+    if !is_commenter?
+      render "/_unauthorized"
+    end
   end
 
   def update
-    if logged_in? && @comment.update(comment_params)
-      redirect_to film_path(@film)
-      # RENDER review partial??
-    elsif logged_in? && !@comment.update
-      render 'edit'
+    if is_commenter? 
+      if @comment.update(comment_params)
+        redirect_to @film
+        # RENDER review partial??
+      else
+        render 'edit'
+      end
     else
-      render "_unauthorized"
+      render "/_unauthorized"
     end
   end
 
   def destroy
-    if logged_in?
+    if !is_commenter?
+      render "/_unauthorized"
     end
   end
 
   private
 
   def set_comment
-    @comment = Comment.find_by(id: params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   def comment_params
     params.require(:comment).permit(:body)
+  end
+
+  def is_commenter?
+    @comment.user == current_user
   end
 
 end
