@@ -1,9 +1,11 @@
 
 <section id="genre-show">
-<%= @genre.title %>
-<img src="<%= @genre.picure %>">
+<h2><%= @genre.title %></h2>
+<img src="<%= @genre.picture %>">
 </section>
 
 <section id="film-index">
 <!-- FILM VIEW -->
 </section>
+
+<%= link_to 'Back', genres_path %>
