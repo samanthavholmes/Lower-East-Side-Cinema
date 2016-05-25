@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest, null: false
       t.text :bio
       t.string :picture
-      t.string :role
+      t.string :role, null: false, default: "public"
 
       t.timestamps null: false
     end
