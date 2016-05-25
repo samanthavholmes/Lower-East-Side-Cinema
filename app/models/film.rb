@@ -32,9 +32,5 @@ class Film < ActiveRecord::Base
     total_user_ratings != 0 ? user_total/total_user_ratings : 0
   end
 
-  def comment_number #Gives the number of comments for a specific film
-    self.comments.count
-  end
-
 end
 
