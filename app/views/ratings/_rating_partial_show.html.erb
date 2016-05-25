@@ -1,0 +1,6 @@
+<p><%=rating.review%></p><br>
+- <%=rating.user.first_name%>
+<%=rating.user.last_name%>
+
+<%= render partial: "comment_partial_show", locals {rating: rating} %>
+
