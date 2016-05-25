@@ -1,12 +1,12 @@
 class RatingsController < ApplicationController
   before_action :set_rating, only: [:edit, :update, :destroy]
+  include UsersHelper
 
 
   def new
-    if logged_in?
-      @rating = Rating.new
-      @film = Film.find_by(id: params[:film_id])
-    else
+    @rating = Rating.new
+    @film = Film.find_by(id: params[:film_id])
+    if !logged_in? || already_rated?(@film)
       render "/_unauthorized"
     end
   end
@@ -20,20 +20,21 @@ class RatingsController < ApplicationController
         render :new
       end
     else
-      render "/unauthorized"
+      render "/_unauthorized"
     end
   end
 
   def edit
+    @film = Film.find_by(id: params[:film_id])
     if !is_author?
-      render "/unathorized"
+      render "/_unauthorized"
     end
   end
 
   def update
     if is_author?
       if @rating.update(rating_params)
-        redirect_to @rating
+        redirect_to film_path(@rating.film)
       else
         render :edit
       end
