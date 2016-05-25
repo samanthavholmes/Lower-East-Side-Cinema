@@ -2,6 +2,6 @@
 <section id="genre-index">
 <% @genres.each do |genre| %>
 <%= link_to genre.title, genre_path(genre) %>
-<img src="<%= genre.picture %>">
+<img class="genre_pictures"src="<%= genre.picture %>">
 <% end %>
 </section>
