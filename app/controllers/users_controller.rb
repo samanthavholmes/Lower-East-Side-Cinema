@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @judges = User.where(role: "judge")
+  end
+
   def new
     @user = User.new #Instantiate new blank user
   end
@@ -8,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #Create a temp user with strong params
     if @user.save # If the user is valid and saves
+      session[:user_id] = @user.id
       redirect_to root_path #redirect to the home page
     else
       @errors = @user.errors.full_messages #Show errors

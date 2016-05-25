@@ -18,18 +18,20 @@
 </ul>
 </div>
 
-<%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}) %>
-
 <div class="rating" id="public-ratings">
 <h3>Public Reviews</h3>
 <ul>
 	<% @film.ratings.each do |rating| %>
 	<% if !rating.user.judge? %>
+
 	<li>
 		<%= render partial: "ratings/rating_partial_show", locals: {rating: rating}%>
+	<% end %>
 	</li>
 	<% end %>
 	<%end%>
 </ul>
 </div>
+
+<%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}) %>
 
