@@ -25,7 +25,6 @@
 	<% if !rating.user.judge? %>
 	<li>
 		<%= render partial: "ratings/rating_partial_show", locals: {rating: rating} %>
-	<% end %>
 	</li>
 	<% end %>
 	<%end%>
@@ -33,4 +32,3 @@
 </div>
 
 <%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}) %>
-

@@ -111,16 +111,16 @@ end
 10.times do
   rating = Rating.create!(stars: rand(1..5),
     review: Faker::Lorem.paragraph,
-    user: User.all.sample, 
-    film: Film.all.sample) 
-  rating.comments.create!(user: User.all.sample)
+    user: User.all.sample,
+    film: Film.all.sample)
+  rating.comments.create!(user: User.all.sample, body: Faker::Lorem.paragraph)
 end
 
-20.times do
-  Comment.create!(body: Faker::Lorem.paragraph,
-    user_id: rand(1..20),
-    rating_id: (1..60))
-end
+# 20.times do
+#   Comment.create!(body: Faker::Lorem.paragraph,
+#     user_id: rand(1..20),
+#     rating_id: (1..60))
+# end
 
 
 
