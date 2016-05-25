@@ -6,9 +6,11 @@
 </section>
 
 <section id="film-index">
-<!-- FILM VIEW -->
+<ul>
+	<%= @genre.films.each do |film| %>
+	<li><%= link_to film.title, film_path %></li>
+	<% end %>
+</ul>
 </section>
 
-
-<%= link_to 'Back', genres_path %>
 
