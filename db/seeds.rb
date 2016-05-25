@@ -28,7 +28,7 @@ end
 
 10.times do
   Film.create!(title: Faker::Book.title,
-    director: Faker::Name,
+    director: Faker::Name.name,
     description: Faker::Lorem.paragraph,
     picture: Faker::Avatar.image,
     genre_id: 1)
@@ -36,7 +36,7 @@ end
 
 10.times do
   Film.create!(title: Faker::Book.title,
-    director: Faker::Name,
+    director: Faker::Name.name,
     description: Faker::Lorem.paragraph,
     picture: Faker::Avatar.image,
     genre_id: 2)
@@ -44,7 +44,7 @@ end
 
 10.times do
   Film.create!(title: Faker::Book.title,
-    director: Faker::Name,
+    director: Faker::Name.name,
     description: Faker::Lorem.paragraph,
     picture: Faker::Avatar.image,
     genre_id: 3)
@@ -52,7 +52,7 @@ end
 
 10.times do
   Film.create!(title: Faker::Book.title,
-    director: Faker::Name,
+    director: Faker::Name.name,
     description: Faker::Lorem.paragraph,
     picture: Faker::Avatar.image,
     genre_id: 4)
@@ -60,7 +60,7 @@ end
 
 10.times do
   Film.create!(title: Faker::Book.title,
-    director: Faker::Name,
+    director: Faker::Name.name,
     description: Faker::Lorem.paragraph,
     picture: Faker::Avatar.image,
     genre_id: 5)
