@@ -8,7 +8,7 @@
 <section id="film-index">
 <ul>
 	<% @genre.films.reverse.each do |film| %>
-	<li><%= link_to film.title, film_path %></li>
+	<li><%= link_to film.title, film_path(film) %></li>
 	<% end %>
 </ul>
 </section>

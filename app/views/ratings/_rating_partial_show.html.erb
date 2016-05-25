@@ -6,6 +6,7 @@
   <%= link_to "Edit rating", edit_rating_path(rating, params: {film_id: @film.id}) %>
 <% end %>
 
+<h4>Comments</h4>
 <ul id = "rating_comments">
 <%  rating.comments.reverse.each do |comment| %>
 <li>
