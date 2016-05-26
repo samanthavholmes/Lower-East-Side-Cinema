@@ -8,12 +8,12 @@
 </head>
 <body>
   <div class="header-bar">
-    <div id="title"><%= link_to "Lower East Side Film Fest", genres_path %></div>
+    <div id="title"><%= link_to "LES Film Fest", genres_path %></div>
     </div>
   <div class="header-bar" id="lower-bar">
+    <%= link_to "Meet the Judges", judges_path %>
   <%if logged_in?%>
     <%= link_to "Profile", user_path(current_user) %>
-    <%= link_to "Meet the Judges", judges_path %>
     <%= link_to "Logout",logout_path %>
   <%else%>
     <%= link_to "Register", new_user_path %>
