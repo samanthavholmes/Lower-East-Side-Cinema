@@ -8,7 +8,7 @@ class RatingsController < ApplicationController
     @film = Film.find_by(id: params[:film_id])
     if request.xhr?
       render partial: 'form', layout: false
-      if !logged_in? || already_rated?(@film)
+      if !logged_in? || already_rated?(@film) && !current_user_admin
         render "/_unauthorized"
       end
     end
@@ -29,13 +29,13 @@ class RatingsController < ApplicationController
 
   def edit
     @film = Film.find_by(id: params[:film_id])
-    if !is_author?
+    if !is_author? && !current_user.admin?
       render "/_unauthorized"
     end
   end
 
   def update
-    if is_author?
+    if is_author? || current_user.admin?
       if @rating.update(rating_params)
         redirect_to film_path(@rating.film)
       else
@@ -47,7 +47,7 @@ class RatingsController < ApplicationController
   end
 
   def destroy
-    if is_author?
+    if is_author? || current_user.admin?
       @film = @rating.film
       @rating.destroy
       redirect_to @film

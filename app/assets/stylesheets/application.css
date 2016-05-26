@@ -1,8 +1,25 @@
-
 /*Image Resizing*/
 .genre_pictures {
-  height: 150px;
-  width: 150px;
+  height: 400px;
+  width: 400px;
+}
+
+#genre-index {
+  text-align: center;
+}
+
+#genre-show {
+  display: inline-block;
+  float:left;
+  margin-left: 15%
+}
+
+#genre-show-page {
+  text-align: center;
+}
+
+#recent-ratings {
+  margin-right: 15%
 }
 
 .judge_pictures {
@@ -15,14 +32,14 @@
   width: 150px;
 }
 
-.genre_pictures{
-  height: 150px;
-  width: 150px;
+ul {
+  list-style: none;
 }
 
 .header-bar {
-	background-color: #6890E7;
-	height: 170px;
+  background-color: #6890E7;
+  height: 170px;
+  text-align: center;
 }
 
 .header-bar li {
@@ -30,30 +47,34 @@
   margin: 0 10px;
   display: inline;
   float: center;
-
 }
 
 .header-bar a {
-	color: white;
+  color: white;
   text-decoration: none;
+  padding-left: 20px;
 }
 
 #title {
-	font-family: Lucida;
-	font-size: 130px;
-	color: white;
-	font-weight: bold;
-	text-shadow: -5px 0 #ADD7F6, 0 5px #61FBF0, 5px 0 #ADD7F6, 0 -5px #61FBF0;
-	text-align: center;
+  font-family: Lucida;
+  font-size: 130px;
+  color: white;
+  font-weight: bold;
+  text-shadow: -5px 0 #ADD7F6, 0 5px #61FBF0, 5px 0 #ADD7F6, 0 -5px #61FBF0;
+  text-align: center;
 }
 
 #title a:hover {
-	text-shadow: -9px 0 #ADD7F6, 0 9px #61FBF0, 9px 0 #ADD7F6, 0 -9px #61FBF0;
+  text-shadow: -9px 0 #ADD7F6, 0 9px #61FBF0, 9px 0 #ADD7F6, 0 -9px #61FBF0;
 }
 
 #lower-bar {
-	height: 50px;
-	background-color: #3A4249;
+  height: 50px;
+  background-color: #3A4249;
+}
+
+.hidden {
+  display:none;
 }
 
 #sort_tabs{
@@ -77,7 +98,8 @@
 
 .film_list {
   list-style: none;
-  padding-left: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
   display: none;
   margin-top: 46px;
   margin-left: 41.5%;
