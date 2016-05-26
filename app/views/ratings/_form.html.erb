@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :stars %><br>
-    <%= f.number_field :stars %>
+    <%= f.number_field :stars, in: 0..5, step: 0.5%>
   </div>
   <div class="field">
     <%= f.label :review %><br>
