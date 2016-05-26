@@ -27,7 +27,7 @@ describe SessionsController do
       end
       it "returns a email or password error" do
         post :create, { session: { email:"test2@test.com", password:"1234567"} }
-        expect(current_user[:errors]).to_not be_empty
+        expect([:errors]).to_not be_empty
       end
     end
 
@@ -38,7 +38,7 @@ describe SessionsController do
       end
       it "reutrns an email or password error" do
         post :create, { session: { email:"tes2@test.com", password:"123456"} }
-        expect(current_user[:errors]).to_not be_empty
+        expect([:errors]).to_not be_empty
       end
     end
   end
