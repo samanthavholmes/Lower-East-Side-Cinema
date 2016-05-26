@@ -1,4 +1,8 @@
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
+/*
+ *= require rails_bootstrap_forms
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -172,4 +176,10 @@ ul {
   border-bottom: 0px;
 }
 
+#unauthorized {
+  color: red;
+}
 
+.page-title {
+  text-align: center;
+}
