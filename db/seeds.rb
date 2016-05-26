@@ -89,7 +89,7 @@ User.create!(first_name: "Bobby",
     email: "samblackman@devbootcamp.com",
     password: "password",
     bio: "Alias: Sam Blackman",
-    picture: "https://keetonsonline.files.wordpress.com/2015/05/0753.png",
+    picture: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAWcAAAAJDdkNmMzNjYwLTYxYmQtNDdlMi05MWM0LTUwZjdmMWQwMmE1Ng.jpg",
     role: "admin")
 
 User.create!(first_name: "Peo",
@@ -97,8 +97,10 @@ User.create!(first_name: "Peo",
     email: "pan@devbootcamp.com",
     password: "password",
     bio: "Alias: Pan Wangperawong",
-    picture: "https://keetonsonline.files.wordpress.com/2015/05/0753.png",
+    picture: "https://pbs.twimg.com/media/A8RBzPrCcAAFfFy.jpg",
     role: "admin")
+
+
 
 
 
