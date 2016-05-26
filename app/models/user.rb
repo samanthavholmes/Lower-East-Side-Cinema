@@ -12,5 +12,9 @@ class User < ActiveRecord::Base
     self.role == "judge"
   end
 
+  def admin?
+    self.role == "admin"
+  end
+
 end
 

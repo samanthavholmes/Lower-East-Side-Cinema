@@ -1,2 +1,7 @@
 <p><%= comment.body %></p>
  - <%= link_to comment.user.first_name + " " + comment.user.last_name, user_path(comment.user) %></p>
+<% if logged_in? %>
+  <% if comment.user == current_user || current_user.role == "admin" %>
+  <%= link_to "Edit comment", edit_comment_path(comment, params: {film_id: @film.id}) %>
+  <% end %>
+  <% end %>

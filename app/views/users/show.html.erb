@@ -1,5 +1,6 @@
 <div id="user_show">
   <h1><%=@user.first_name%> <%=@user.last_name%></h1>
+  <p>Role: <%=@user.role.capitalize%></p>
   <img id="profile_picture" src="<%=@user.picture%>">
   <p><%=@user.bio%></p>
   <h3>Movies <%=@user.first_name%> <%=@user.last_name%> has reviewed</h3>
@@ -12,7 +13,7 @@
       </li>
     <% end %>
   </ul>
-  <% if logged_in? && @user == current_user %>
+  <% if logged_in? && @user == current_user || current_user.admin?%>
   <%= link_to "Edit profile", edit_user_path %>
   <% end %>
 </div>
