@@ -12,7 +12,7 @@ class RatingsController < ApplicationController
         render "/_unauthorized"
       end
     end
-  end
+  end 
 
 def create
     if logged_in?
