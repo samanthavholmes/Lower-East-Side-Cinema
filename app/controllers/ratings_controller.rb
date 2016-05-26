@@ -12,13 +12,18 @@ class RatingsController < ApplicationController
         render "/_unauthorized"
       end
     end
-  end
+  end 
 
-  def create
+def create
     if logged_in?
       @rating = Rating.new(rating_params.merge(user_id: current_user.id))
+      @film = @rating.film
       if @rating.save
-        redirect_to film_path(@rating.film)
+        if request.xhr?
+          render partial: 'rating_partial_show', layout: false, locals: {rating:@rating}
+        else 
+          redirect_to film_path(@rating.film)
+        end
       else
         render :new
       end
@@ -26,6 +31,7 @@ class RatingsController < ApplicationController
       render "/_unauthorized"
     end
   end
+
 
   def edit
     @film = Film.find_by(id: params[:film_id])

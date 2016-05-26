@@ -17,6 +17,9 @@
 	<% end %>
 	<%end%>
 </ul>
+<% if logged_in? && !already_rated?(@film) && current_user.judge?%>
+<%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}), class:"form-link" %>
+<% end %>
 </div>
 
 <div class="rating" id="public-ratings">
@@ -31,9 +34,10 @@
 	<%end%>
 </ul>
 
+<% if logged_in? && !already_rated?(@film) && !current_user.judge?%>
+<%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}), class:"form-link" %>
+<% end %>
 </div>
 </div>
 
-<% if logged_in? && !already_rated?(@film) || !current_user.admin? %>
-<%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}), class:"form-link" %>
-<% end %>
+
