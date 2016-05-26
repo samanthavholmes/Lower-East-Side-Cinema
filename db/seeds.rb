@@ -18,11 +18,11 @@ end
 end
 
 genres = ["Comedy", "Drama", "Thriller/Horror", "Romance", "Short", "Documentary"]
-
+genre_pictures = ["http://trustmywatch.weebly.com/uploads/4/1/1/4/41147171/1751854_orig.jpg", "http://www.synchme.com/store/filesnegozio/images/Banner_Drama.jpg", "http://stagebrief.co.ug/Images/Actor%20101/2014/HORROR2.jpg", "http://tag-fox.com/upload/2013/12/14/20131214115427-26ae5897.jpg", "http://www.filmfestivals.com/files/images/u22164/Short%20Films-2.jpg", "https://tonyfolden.files.wordpress.com/2015/09/documentary-shot.jpg"]
 i = 0
 
 while i < genres.length
-  Genre.create!(title: genres[i], picture: Faker::Avatar.image)
+  Genre.create!(title: genres[i], picture: genre_pictures[i])
   i += 1
 end
 
