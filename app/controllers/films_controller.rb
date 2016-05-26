@@ -4,8 +4,5 @@ class FilmsController < ApplicationController
   	@film = Film.find_by(id: params[:id])
   end
 
-  private
-
-
 
 end

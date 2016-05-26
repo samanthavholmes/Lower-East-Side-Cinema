@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
   def new
     if logged_in?
+      @rating = Rating.find_by(id: params[:rating_id])
       @comment = Comment.new
     else
       render "/_unauthorized"
@@ -11,9 +12,10 @@ class CommentsController < ApplicationController
 
   def create
     if logged_in?
-    @comment = @comment.new(comment_params)
+      @rating = Rating.find_by(id: params[:comment][:rating_id])
+      @comment = Comment.new(comment_params.merge(user_id: current_user.id, rating_id: @rating.id))
       if @comment.save
-        redirect_to @film
+        redirect_to film_path(@comment.rating.film)
       # RENDER review partial??
       else
         render 'new'
