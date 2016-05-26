@@ -9,34 +9,19 @@ class Film < ActiveRecord::Base
   end
 
   def avg_judge_rating #Gives the average number of stars for judges for a given movie
-    judge_total = 0
-    total_judge_ratings = 0
-    self.ratings.each do |rating|
-        if rating.user.role == "judge"
-          total_judge_ratings += 1
-          judge_total += rating.stars
-        end
-      end
-    total_judge_ratings != 0 ? judge_total/total_judge_ratings : 0
+    self.judge_ratings.length != 0 ? self.judge_ratings.sum(:stars)/self.judge_ratings.length : 0
   end
 
   def avg_user_rating #Gives the average number of stars for the crowd for a given movie
-    user_total = 0
-    total_user_ratings = 0
-    self.ratings.each do |rating|
-      if rating.user.role != "judge"
-        total_user_ratings += 1
-        user_total += rating.stars
-      end
-    end
-    total_user_ratings != 0 ? user_total/total_user_ratings : 0
+      self.user_ratings.length != 0 ? self.user_ratings.sum(:stars)/self.user_ratings.length : 0
   end
 
-  # def judge_ratings
-  #   self.ratings.where((user.role): "judge")
-  # end
+  def judge_ratings
+    Rating.joins(:film, :user).where(users: {role: "judge"})
+  end
+
+  def user_ratings
+    Rating.joins(:film, :user).where(users: {role: "public"})
+  end
 
 end
-
-# self.judge_ratings.average(:stars)
-# self.user_ratings.average(:stars)

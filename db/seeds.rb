@@ -76,7 +76,7 @@ end
     genre_id: 6)
 end
 
-10.times do
+50.times do
   rating = Rating.create!(stars: rand(1..5),
     review: Faker::Lorem.paragraph,
     user: User.all.sample,

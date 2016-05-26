@@ -12,7 +12,7 @@ class RatingsController < ApplicationController
         render "/_unauthorized"
       end
     end
-  end 
+  end
 
 def create
     if logged_in?
@@ -21,7 +21,7 @@ def create
       if @rating.save
         if request.xhr?
           render partial: 'rating_partial_show', layout: false, locals: {rating:@rating}
-        else 
+        else
           redirect_to film_path(@rating.film)
         end
       else
@@ -45,6 +45,7 @@ def create
       if @rating.update(rating_params)
         redirect_to film_path(@rating.film)
       else
+        binding.pry@
         render :edit
       end
     else
