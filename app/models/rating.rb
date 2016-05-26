@@ -4,4 +4,7 @@ class Rating < ActiveRecord::Base
   belongs_to :user
   belongs_to :film
   has_many :comments, dependent: :destroy #If a rating is deleted, all comments on it will be deleted as well
+
+  accepts_nested_attributes_for :user
+
 end
