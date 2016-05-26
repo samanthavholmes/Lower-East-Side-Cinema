@@ -9,11 +9,11 @@ class Film < ActiveRecord::Base
   end
 
   def avg_judge_rating #Gives the average number of stars for judges for a given movie
-    self.judge_ratings.length != 0 ? self.judge_ratings.sum(:stars)/self.judge_ratings.length : 0
+    self.judge_ratings.length != 0 ? self.judge_ratings.sum(:stars) /self.judge_ratings.length : 0
   end
 
   def avg_user_rating #Gives the average number of stars for the crowd for a given movie
-      self.user_ratings.length != 0 ? self.user_ratings.sum(:stars)/self.user_ratings.length : 0
+    self.user_ratings.length != 0 ? self.user_ratings.sum(:stars) /self.user_ratings.length : 0
   end
 
   def judge_ratings
