@@ -26,15 +26,17 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    if !is_commenter?
+    @rating = @comment.rating
+    if !is_commenter? && !current_user.admin?
       render "/_unauthorized"
     end
   end
 
   def update
-    if is_commenter? 
+    @rating = @comment.rating
+    if is_commenter? || current_user.admin?
       if @comment.update(comment_params)
-        redirect_to @film
+        redirect_to film_path(@rating.film)
         # RENDER review partial??
       else
         render 'edit'
@@ -45,7 +47,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if !is_commenter?
+    if is_commenter? || current_user.admin?
+      @rating = @comment.rating
+      @comment.destroy
+      redirect_to @film
+    else
       render "/_unauthorized"
     end
   end

@@ -24,13 +24,13 @@ class UsersController < ApplicationController
   end
 
   def edit #Render edit page
-    if !is_user? #Protects the route against users deleting profiles that aren't theirs
+    if !is_user? && !current_user.admin? #Protects the route against users deleting profiles that aren't theirs
       render "/_unauthorized"
     end
   end
 
   def update
-    if is_user? #Protects the route against users deleting profiles that aren't theirs
+    if is_user? || current_user.admin? #Protects the route against users deleting profiles that aren't theirs
       @user = current_user.assign_attributes(user_params)
       if @user.save
         redirect_to root_path #Redirect to home page
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if is_user?
+    if is_user? || current_user.admin?
       @user.destroy #Delete the user from the database
       redirect_to root_path #Redirect to home page
     else
