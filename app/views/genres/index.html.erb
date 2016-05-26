@@ -1,8 +1,7 @@
-<h2>Film Genres</h2>
 <section id="genre-index">
+<h1>Film Genres</h1>
 <% @genres.each do |genre| %>
-<%= link_to genre.title, genre_path(genre) %>
-<%= link_to image_tag(src="#{genre.picture}"), genre_path(genre) %>
+<%= link_to image_tag(src="#{genre.picture}", class: "genre_pictures"), genre_path(genre) %>
 <% end %>
 </section>
- 
+
