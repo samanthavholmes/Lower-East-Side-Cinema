@@ -1,3 +1,5 @@
+#Model validations, associations, and methods tested
+
 require 'rails_helper'
 describe Rating do
 	let!(:rating) {Rating.create({stars: 1.0, review: "text"})}

@@ -1,6 +1,9 @@
+#Model validations, associations, and methods tested
+
 require 'rails_helper'
 describe User do
   let(:first_user) {User.create ({first_name: "test", last_name: "test", email: "test@test.com", password: "password", role: "judge"}) }
+  let(:second_user) {User.create ({first_name: "test", last_name: "test", email: "test@test.com", password: "password", role: "admin"}) }
   let(:rating) {Rating.create({stars: 5, review: "blah"})}
   let(:comment) {Comment.create({body: "blah"})}
   let(:user) { User.new }
@@ -154,8 +157,18 @@ describe User do
       end
 
       it "it returns false if a person's role is something other than judge" do
-        first_user.role = "public"
-        expect(first_user.judge?).to eq false
+        expect(second_user.judge?).to eq false
+      end
+
+    end
+    describe "#admin?" do
+
+      it "it returns true if a person's role is admin" do
+        expect(second_user.admin?).to eq true
+      end
+
+      it "it returns false if a person's role is something other than judge" do
+        expect(first_user.admin?).to eq false
       end
 
     end
