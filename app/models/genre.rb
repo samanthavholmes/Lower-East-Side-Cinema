@@ -1,5 +1,5 @@
 class Genre < ActiveRecord::Base
-  include FilmsHelper
+
 
   validates_presence_of :title, :picture
 

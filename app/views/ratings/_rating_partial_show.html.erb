@@ -4,10 +4,15 @@
 - <%= link_to rating.user.first_name + " " + rating.user.last_name, user_path(rating.user) %><br>
 
 <% if logged_in? %>
-  <% if rating.user == current_user || current_user.role == "admin" %><br>
-  <%= link_to "Edit rating", edit_rating_path(rating, params: {film_id: @film.id}) %>
- <p><%= link_to "Comment on this review", new_comment_path(params: {rating_id: rating.id}) %></p>
-<% end %>
+
+  <% if rating.user == current_user || current_user.admin? %><br>
+    <%= link_to "Edit rating", edit_rating_path(rating, params: {film_id: @film.id}) %>
+  <% end %>
+
+  <% if !current_user.admin? %>
+    <p><%= link_to "Comment on this review", new_comment_path(params: {rating_id: rating.id}) %></p>
+  <% end %>
+
 <% end %>
 
 

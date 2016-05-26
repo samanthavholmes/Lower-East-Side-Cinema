@@ -32,5 +32,11 @@ class Film < ActiveRecord::Base
     total_user_ratings != 0 ? user_total/total_user_ratings : 0
   end
 
+  # def judge_ratings
+  #   self.ratings.where((user.role): "judge")
+  # end
+
 end
 
+# self.judge_ratings.average(:stars)
+# self.user_ratings.average(:stars)
