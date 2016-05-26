@@ -1,6 +1,7 @@
 var ready;
 ready = function() {
   $("#star_sort").on("click",function(event){
+    event.preventDefault();
     $target = $(event.target)
     $target.parents().find(".clicked").removeClass("clicked");
     $target.parent().addClass("clicked");
@@ -10,6 +11,7 @@ ready = function() {
   });
 
   $("#recent_sort").on("click",function(event){
+    event.preventDefault();
     $target = $(event.target)
     $target.parents().find(".clicked").removeClass("clicked");
     $target.parent().addClass("clicked");

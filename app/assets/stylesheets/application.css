@@ -88,7 +88,6 @@ ul {
 
 #sort_tabs{
   list-style: none;
-  position: absolute;
   margin-left: 40.5%;
   margin-bottom: 0px;
 }
@@ -110,8 +109,9 @@ ul {
   padding-left: 10px;
   padding-right: 10px;
   display: none;
-  margin-top: 46px;
-  margin-left: 41.5%;
+  margin-top: 0px;
+  margin-left: 45%
+
 }
 
 .active {
