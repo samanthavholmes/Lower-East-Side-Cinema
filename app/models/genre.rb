@@ -8,21 +8,13 @@ class Genre < ActiveRecord::Base
 
 
   def sort_by_stars #Sorts all the movies present by star rating and reverses them using the "-"
-  self.films.order(:avg_star_rating)
-
+    self.films.sort_by do |film|
+      film.avg_star_rating
+    end
   end
-      # self.films.sort_by do |film|
-      # -film.avg_star_rating
-
 
   def film_winner
     self.sort_by_stars.first
-  end
-
-  def sort_by_comments #Sorts all the movies present by number of comments and reverses them using the "-"
-    self.films.sort_by do |film|
-      -film.comment_number
-    end
   end
 
 end
