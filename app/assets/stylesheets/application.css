@@ -22,15 +22,15 @@
   margin-right: 15%
 }
 
+#genre-index {
+  text-align: center;
+}
+
 .judge_pictures {
   height: 150px;
   width: 150px;
 }
 
-#profile_picture {
-  height: 150px;
-  width: 150px;
-}
 
 ul {
   list-style: none;
@@ -39,6 +39,11 @@ ul {
 .header-bar {
   background-color: #6890E7;
   height: 170px;
+}
+
+.header-bar {
+	background-color: #6890E7;
+	height: 170px;
   text-align: center;
 }
 
@@ -71,6 +76,10 @@ ul {
 #lower-bar {
   height: 50px;
   background-color: #3A4249;
+}
+
+.hidden {
+  display:none;
 }
 
 .hidden {
