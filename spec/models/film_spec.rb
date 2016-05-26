@@ -5,22 +5,22 @@ describe Film do
 	let!(:film2) {Film.create({})}
 	let(:rating){Rating.create({stars: 1})}
 	let(:rating2){Rating.create({stars: 2})}
-
+	let(:genre){Genre.create({title: "title"})}
 	context "Validations" do
 
-		describe "#title" do		
+		describe "#title" do
 		it "is valid with a title" do
 				film.valid?
 				expect(film.title).to eq("Title")
 			end
-		
+
 		it "is invalid without a title" do
 				film2.valid?
 				expect(film2.title).to be_nil
 			end
 		end
 
-		describe "#director" do 
+		describe "#director" do
 			it "is valid with a director" do
 				film.valid?
 				expect(film.director).to eq("Director")
@@ -57,14 +57,32 @@ describe Film do
 		end
 	end
 
-	# context "Methods" do
-	# 	describe "#film.avg_star_rating" do
-	# 		it "calculates the average star rating given to film" do
-	# 			film.ratings.push(rating, rating2)
-	# 			total = film.ratings.first.stars + film.ratings.second.stars
-	# 			average = total/film.ratings.length
-	# 			expect(film.avg_star_rating).to eq(3.0)
-	# 		end
-	# 		end
-	# end
+	context "Associations" do
+
+		describe "#film.genre" do
+			it "returns the genre it belongs to" do
+				genre.films << film
+				expect(film.genre).to eq(genre)
+			end
+
+			it "returns nil if it doesn't have a genre" do
+				expect(film.genre).to be_nil
+			end
+		end
+
+		describe "#film.rating" do
+			it "returns an array of ratings if it has them" do
+				film.ratings << rating
+				film.ratings << rating2
+				expect(film.ratings).to eq([rating, rating2])
+			end
+
+			it "returns an empty array if it has no ratings" do
+				expect(film.ratings).to be_empty
+			end
+		end
+	end
+
+
+
 end
