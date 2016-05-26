@@ -6,8 +6,11 @@ class RatingsController < ApplicationController
   def new
     @rating = Rating.new
     @film = Film.find_by(id: params[:film_id])
-    if !logged_in? || already_rated?(@film)
-      render "/_unauthorized"
+    if request.xhr?
+      render partial: 'form', layout: false
+      if !logged_in? || already_rated?(@film)
+        render "/_unauthorized"
+      end
     end
   end
 
