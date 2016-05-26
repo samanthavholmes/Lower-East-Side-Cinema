@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// $(document).ready(function() {
+//   $('.genre_pictures').mouseenter(function(){
+//     $(this).animate({
+//       height: '+=10px'
+//     });
+//   }):
+// });
