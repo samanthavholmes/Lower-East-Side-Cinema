@@ -8,7 +8,8 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   width: 400px;
 }
 
-#genre-index {
+#genre-index div {
+  margin:0;
   text-align: center;
 }
 
@@ -28,13 +29,14 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 
 #genre-index {
   text-align: center;
+  max-width: 1190px;
+  margin: 0 auto;
 }
 
 .judge_pictures {
   height: 150px;
   width: 150px;
 }
-
 
 ul {
   list-style: none;
@@ -74,6 +76,22 @@ ul {
 
 #title a:hover {
   text-shadow: -9px 0 #ADD7F6, 0 9px #61FBF0, 9px 0 #ADD7F6, 0 -9px #61FBF0;
+  text-decoration: none;
+}
+
+.jumbotron {
+  margin: 0px;
+}
+
+.footer {
+  background-color: #3A4249;
+  text-align:center;
+  margin-top: 15px;
+}
+
+.footer p {
+  margin-top:5px;
+  color: white;
 }
 
 #lower-bar {
@@ -88,12 +106,19 @@ ul {
   background-color: #3A4249;
 }
 
-#lower-bar a{
-  font-size: 15px;
+.col-md-4 {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 0px;
+  text-align: center;
 }
 
-.hidden {
-  display:none;
+.img-rounded {
+  margin-right: 0px;
+}
+
+#lower-bar a{
+  font-size: 15px;
 }
 
 .hidden {

@@ -8,9 +8,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="header-bar">
-    <div id="title"><%= link_to "LES Film Fest", genres_path %></div>
-    </div>
+    <div id="title" class= "jumbotron"><%= link_to "LES Film Fest", genres_path %></div>
+
 
   <div class="dropdown header-bar" id= "lower-bar">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
@@ -28,8 +27,14 @@
   </div>
 </div>
 
+
 <%= yield %>
 
+<footer class= "footer">
+  <div class= "container">
+    <p >Alana Farkas, Sam Holmes, Sibel Ergener, and Leo Kukhar</p>
+  </div>
+</footer>
 </body>
 </html>
 
