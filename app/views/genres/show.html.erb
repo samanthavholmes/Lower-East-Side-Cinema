@@ -8,7 +8,6 @@
 
 <section id="film-index">
 
-
   <h2>Current Winner</h2>
     <h3><%= link_to @genre.film_winner.title, film_path(@genre.sort_by_stars.first)%><br>
     <%= link_to image_tag(src="#{@genre.film_winner.picture}", class: "genre_pictures"), genre_path(@genre) %></h3>
