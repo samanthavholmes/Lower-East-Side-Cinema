@@ -11,16 +11,22 @@
   <div class="header-bar">
     <div id="title"><%= link_to "LES Film Fest", genres_path %></div>
     </div>
-  <div class="header-bar" id="lower-bar">
-    <%= link_to "Meet the Judges", judges_path %>
-  <%if logged_in?%>
-    <%= link_to "Profile", user_path(current_user) %>
-    <%= link_to "Logout",logout_path %>
-  <%else%>
-    <%= link_to "Register", new_user_path %>
-    <%= link_to "Login",login_path %>
-  <%end%>
+
+  <div class="dropdown header-bar" id= "lower-bar">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Menu
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><%= link_to "Meet the Judges", judges_path %></li>
+      <%if logged_in?%>
+      <li><%= link_to "Profile", user_path(current_user) %></li>
+      <li><%= link_to "Logout",logout_path %></li>
+      <% else %>
+      <li><%= link_to "Register", new_user_path %></li>
+      <li><%= link_to "Login",login_path %></li>
+      <% end %>
+    </ul>
   </div>
+</div>
 
 <%= yield %>
 
