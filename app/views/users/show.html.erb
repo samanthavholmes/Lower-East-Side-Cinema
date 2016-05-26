@@ -13,7 +13,7 @@
       </li>
     <% end %>
   </ul>
-  <% if logged_in? && @user == current_user || current_user.admin?%>
+  <% if logged_in? && (@user == current_user || current_user.admin?)%>
   <%= link_to "Edit profile", edit_user_path %>
   <% end %>
 </div>

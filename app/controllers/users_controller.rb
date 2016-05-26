@@ -24,22 +24,23 @@ class UsersController < ApplicationController
   end
 
   def edit #Render edit page
-    if !is_user? && !current_user.admin? #Protects the route against users deleting profiles that aren't theirs
-      render "/_unauthorized"
-    end
+    if !logged_in? || !is_user? && !current_user.admin? #Protects the route against users deleting profiles that aren't theirs
+        render "/_unauthorized"
+      end
   end
 
   def update
-    if is_user? || current_user.admin? #Protects the route against users deleting profiles that aren't theirs
-      @user = current_user.assign_attributes(user_params)
-      if @user.save
-        redirect_to root_path #Redirect to home page
+    if logged_in?
+      if is_user? || current_user.admin? #Protects the route against users deleting profiles that aren't theirs
+        if @user.update(user_params)
+          redirect_to root_path #Redirect to home page
+        else
+          @errors = @user.errors.full_messages #Show  error messages
+          render 'edit' #Rerender edit page
+        end
       else
-        @errors = @user.errors.full_messages #Show error messages
-        render 'edit' #Rerender edit page
+        render "/_unauthorized"
       end
-    else
-      render "/_unauthorized"
     end
   end
 
