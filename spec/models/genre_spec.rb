@@ -4,6 +4,7 @@ describe Genre do
   let(:genre2){Genre.create({title: "horror", picture: "picture.jpg"})}
   let(:film) {Film.create({title: "Gone with the wind",description: "Description", director: "Leo", picture: "picture.jpg"})}
   let(:rating){Rating.create({stars: 1})}
+  
   context "Validations" do
 
     describe "#title" do
