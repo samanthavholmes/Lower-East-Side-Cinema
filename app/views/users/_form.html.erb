@@ -1,3 +1,4 @@
+<div class = "form">
 <%= bootstrap_form_for(@user) do |f| %> <!-- Creates a form to register a new user -->
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -38,3 +39,4 @@
     <%= f.submit 'Submit'%>
   </div>
 <% end %>
+</div>

@@ -45,7 +45,6 @@ def create
       if @rating.update(rating_params)
         redirect_to film_path(@rating.film)
       else
-        binding.pry@
         render :edit
       end
     else
