@@ -1,9 +1,9 @@
 <div id="user_show">
-  <h1><%=@user.first_name%> <%=@user.last_name%></h1>
-  <p>Role: <%=@user.role.capitalize%></p>
+  <h2 class="user_show_heading"><%=@user.first_name%> <%=@user.last_name%></h2>
   <img id="profile_picture" src="<%=@user.picture%>">
-  <p><%=@user.bio%></p>
-  <h3>Movies <%=@user.first_name%> <%=@user.last_name%> has reviewed</h3>
+  <p><span class="bold">Role:</span> <%=@user.role.capitalize%></p>
+  <p><span class="bold">Bio:</span> <%=@user.bio%></p>
+  <h3 class="user_show_heading">Movies <%=@user.first_name%> has reviewed:</h3>
   <ul>
     <%@user.ratings.each do |rating|%> <!-- List of all the reviews -->
       <li>
@@ -17,3 +17,6 @@
   <%= link_to "Edit profile", edit_user_path %>
   <% end %>
 </div>
+
+
+
