@@ -59,11 +59,6 @@ ul {
 .header-bar {
   background-color: #6890E7;
   height: 170px;
-}
-
-.header-bar {
-	background-color: #6890E7;
-	height: 170px;
   text-align: center;
 }
 
@@ -79,22 +74,23 @@ ul {
   color: white;
 }
 
-#title {
+#title a {
   font-family: Lucida;
   font-size: 130px;
-  color: white;
+  color: #3A4249;
   font-weight: bold;
-  text-shadow: -5px 0 #ADD7F6, 0 5px #61FBF0, 5px 0 #ADD7F6, 0 -5px #61FBF0;
+  text-shadow: -5px 0 white;
   text-align: center;
 }
 
 #title a:hover {
-  text-shadow: -9px 0 #ADD7F6, 0 9px #61FBF0, 9px 0 #ADD7F6, 0 -9px #61FBF0;
+  text-shadow: -9px 0 black, 0 9px white;
   text-decoration: none;
 }
 
 .jumbotron {
   margin: 0px;
+  text-align: center;
 }
 
 .footer {
