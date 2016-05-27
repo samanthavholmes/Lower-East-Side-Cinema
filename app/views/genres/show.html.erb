@@ -23,26 +23,18 @@
     </li>
   <% end %>
 </ul>
+</div>
 <div>
 
-
-
-
-<ul id="sort_tabs">
-  <li class="clicked"><a class="tab_links" id="star_sort" href="#">Most Stars</a></li>
-  <li><a class="tab_links" id="recent_sort"href="#">Most Recent</a></li>
-</ul>
-
-<ul  class="film_list" id="sort_by_stars">
+<div id = "genre-films">
+<ul>
+  <h3>Films sorted by rating</h3>
   <% @genre.sort_by_stars.each do |film| %>
     <li><%= link_to film.title, film_path(film) %></li>
   <% end %>
 
-</ul>
-<ul class="active film_list" id="sort_by_recent">
-  <% @genre.films.reverse.each do |film| %>
-    <li><%= link_to film.title, film_path(film) %></li>
-  <% end %>
+</section>
+
 
 
 </ul>
