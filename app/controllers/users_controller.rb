@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     if logged_in?
       if is_user? || current_user.admin? #Protects the route against users deleting profiles that aren't theirs
         if @user.update(user_params)
-          redirect_to root_path #Redirect to home page
+          redirect_to @user #Redirect to home page
         else
           @errors = @user.errors.full_messages #Show  error messages
           render 'edit' #Rerender edit page
