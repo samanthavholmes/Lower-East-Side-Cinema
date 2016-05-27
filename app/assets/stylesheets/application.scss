@@ -20,7 +20,11 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 #genre-show {
   display: inline-block;
   float:left;
-  margin-left: 15%
+  margin-left: 15%;
+}
+
+#genre-show img {
+ margin-top: 5%;
 }
 
 #genre-show-page {
@@ -28,7 +32,13 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 }
 
 #recent-ratings {
-  margin-right: 15%
+  display: inline-block;
+  float: left;
+}
+
+#genre-films {
+  float: right;
+  margin-right: 23%
 }
 
 #genre-index {
@@ -88,6 +98,7 @@ ul {
 }
 
 .footer {
+  clear: both;
   background-color: #3A4249;
   text-align:center;
   margin-top: 15px;
@@ -184,6 +195,14 @@ ul {
   text-align: center;
 }
 
+#recent-ratings {
+  display: inline-block;
+  }
+
+#genre-films {
+  display: inline-block;
+}
+
 #user_show {
   padding: 15px;
   margin-left: 10px;
@@ -196,7 +215,3 @@ ul {
 .bold {
   font-weight: bold;
 }
-
-
-
-
