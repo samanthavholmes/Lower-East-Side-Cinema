@@ -1,18 +1,18 @@
 var ready;
 ready = function() {
 
-  $('.form-link').on('click', function(event) {
+  $('.form-link').on('click', function(e) {
     event.preventDefault();
     $.ajax({ //this targets the link, shows form
       type: "GET",
-      url: event.target.href
+      url: e.target.href
     }).done(function(response) {
       $(".rating-body").append(response);
       $('.form-link').hide();
     });
   });
 
-  $('.rating-body').on('submit', ".new_rating", function(event) {
+  $('.rating-body').on('submit', ".new_rating", function(e) {
     event.preventDefault();
     $.ajax({ //this targets the link, shows form
       type: e.target.method,
