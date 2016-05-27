@@ -1,9 +1,10 @@
+<div id="film-show">
+
 <div id="film-desc">
 	<h1><%= @film.title%></h1>
 	<img src="<%= @film.picture%>">
-	<h3>Directed by: <%= @film.director%></h3>
-	<p><%= @film.description%></p>
 </div>
+
 
 <div class="rating-body">
 <div class="rating" id="judge-ratings">
@@ -38,6 +39,13 @@
 <%= link_to "Add Rating", new_rating_path(params: {film_id: @film.id}), class:"form-link" %>
 <% end %>
 </div>
+</div>
+
+<div id= "director">
+	<h3>Directed by: <%= @film.director%></h3>
+	<p><%= @film.description%></p>
+</div>
+
 </div>
 
 

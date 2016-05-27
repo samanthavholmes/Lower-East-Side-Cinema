@@ -1,3 +1,4 @@
+<div class = "form">
 <%= bootstrap_form_for @rating do |f| %>
   <% if @rating.errors.any? %>
     <div id="error_explanation">
@@ -17,14 +18,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :stars %><br>
     <%= f.number_field :stars, in: 0..5, step: 0.5%>
   </div>
   <div class="field">
-    <%= f.label :review %><br>
     <%= f.text_field :review %>
   </div>
   <div class="actions">
     <%= f.submit 'Submit' %>
   </div>
 <% end %>
+</form>

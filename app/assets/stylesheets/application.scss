@@ -20,7 +20,7 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 #genre-show {
   display: inline-block;
   float:left;
-  margin-left: 15%;
+  margin-left: 12%;
 }
 
 #genre-show img {
@@ -215,3 +215,35 @@ ul {
 .bold {
   font-weight: bold;
 }
+
+#film-desc {
+  display: inline-block;
+  float: left;
+  margin-left: 10%;
+}
+
+#film-show {
+  text-align: center;
+}
+
+.rating {
+  margin-right: 10;
+  width: 45%;
+  float: right;
+  text-align: left
+}
+
+#director {
+  clear: both;
+  float: left;
+  text-align: left;
+  margin-left: 12%
+}
+
+.form {
+  clear: both;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
