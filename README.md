@@ -15,4 +15,4 @@ Ruby on Rails back-end, utilizing jQuery and AJAX to enhance user experience. Bo
 
 - [ ] Finish styling
 - [ ] Make admin features
-- [ ] Host on AWS
+- [ ] Deploy using AWS
